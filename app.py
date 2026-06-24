@@ -1,8 +1,10 @@
+from streamlit_autorefresh import st_autorefresh
+st_autorefresh(interval=60000, key="refresh")
+
 import streamlit as st
 import streamlit.components.v1 as components
 from datetime import datetime
-from streamlit_autorefresh import st_autorefresh
-st_autorefresh(interval=60000, key="refresh")
+
 
 import pandas as pd
 df = pd.read_csv(

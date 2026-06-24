@@ -5,41 +5,102 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+.stApp{
+    background-color:black;
+}
+
+.card{
+    border:1px solid white;
+    padding:20px;
+    margin:10px;
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+
+.valor{
+    font-size:55px;
+    font-weight:bold;
+    color:white;
+}
+
+.verde{
+    color:#00ff00;
+    font-size:30px;
+}
+
+.vermelho{
+    color:red;
+    font-size:30px;
+}
+
+.amarelo{
+    color:yellow;
+    font-size:25px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: black;
-        color: white;
-    }
-    </style>
-    """,
+    "<h1 style='color:white'>STELLANTIS - JABOATÃO</h1>",
     unsafe_allow_html=True
 )
 
-st.title("STELLANTIS - JABOATÃO")
-st.subheader("REPORT PRODUÇÃO ANTERIORES")
+st.markdown(
+    "<h2 style='color:white'>REPORT PRODUÇÃO ANTERIORES</h2>",
+    unsafe_allow_html=True
+)
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.metric("JEEP 551", "551", "-9")
-    st.metric("GIRO LF", "6")
-    st.metric("RETRABALHO", "1")
+    st.markdown("""
+    <div class='card'>
+    <h2>JEEP</h2>
+    <div class='valor'>551</div>
+    <div class='vermelho'>Δ -9</div>
+    <br>
+    <div class='amarelo'>GIRO LF: 6</div>
+    <div class='amarelo'>RETRABALHO: 1</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col2:
-    st.metric("JEEP 226", "226", "-26")
-    st.metric("GIRO LF", "23")
-    st.metric("RETRABALHO", "7")
+    st.markdown("""
+    <div class='card'>
+    <h2>JEEP</h2>
+    <div class='valor'>226</div>
+    <div class='vermelho'>Δ -26</div>
+    <br>
+    <div class='amarelo'>GIRO LF: 23</div>
+    <div class='amarelo'>RETRABALHO: 7</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 col3, col4 = st.columns(2)
 
 with col3:
-    st.metric("FIAT 521", "521", "-11")
-    st.metric("GIRO LF", "10")
-    st.metric("RETRABALHO", "3")
+    st.markdown("""
+    <div class='card'>
+    <h2>FIAT</h2>
+    <div class='valor'>521</div>
+    <div class='vermelho'>Δ -11</div>
+    <br>
+    <div class='amarelo'>GIRO LF: 10</div>
+    <div class='amarelo'>RETRABALHO: 3</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col4:
-    st.metric("FIAT 363", "363", "-10")
-    st.metric("GIRO LF", "13")
-    st.metric("RETRABALHO", "5")
+    st.markdown("""
+    <div class='card'>
+    <h2>FIAT</h2>
+    <div class='valor'>363</div>
+    <div class='vermelho'>Δ -10</div>
+    <br>
+    <div class='amarelo'>GIRO LF: 13</div>
+    <div class='amarelo'>RETRABALHO: 5</div>
+    </div>
+    """, unsafe_allow_html=True)

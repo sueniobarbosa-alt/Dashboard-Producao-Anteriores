@@ -63,17 +63,15 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("""
-    <div class='card'>
+<div class="card">
     <h2>JEEP</h2>
-    <div class='valor'>551</div>
-    <div class='vermelho'delta = -9
-
-cor = "red" if delta < 0 else "#00ff00"
-
-st.markdown(
-    f"<div style='font-size:40px;color:{cor};'>Δ {delta}</div>",
-    unsafe_allow_html=True
-
+    <h1>551</h1>
+    <p>Δ -9</p>
+    <p>GIRO LF: 6</p>
+    <p>RETRABALHO: 1</p>
+</div>
+""", unsafe_allow_html=True)
+    
 with col2:
     st.markdown("""
     <div class='card'>

@@ -4,6 +4,9 @@ st.set_page_config(
     page_title="Produção Jaboatão",
     layout="wide"
 )
+# LOGO
+st.image("logo.png", width=250)
+
 st.markdown(
     f"<h3 style='color:white'>Atualização: {datetime.now().strftime('%H:%M:%S')}</h3>",
     unsafe_allow_html=True

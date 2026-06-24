@@ -80,7 +80,7 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
-col3y, col4 = st.columns(2)
+col3, col4 = st.columns(2)
 
 with col3:
     st.markdown("""

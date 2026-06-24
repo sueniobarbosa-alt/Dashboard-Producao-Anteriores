@@ -1,82 +1,11 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from datetime import datetime
 
 st.set_page_config(
     page_title="Produção Anteriores",
     layout="wide"
 )
-
-st.markdown("""
-<style>
-
-.stApp {
-    background-color: black;
-    color: white;
-}
-
-.card {
-    border: 1px solid white;
-    background-color: black;
-    padding: 0px;
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    color: white;
-}
-
-td {
-    border: 1px solid white;
-    padding: 6px;
-}
-
-.verde {
-    color: #00ff00;
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.amarelo {
-    color: yellow;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.vermelho {
-    color: red;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.linha {
-    font-size: 55px;
-    font-weight: bold;
-}
-
-.titulo {
-    color: #00ff00;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.hora {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.data {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-st.title("STELLANTIS - JABOATÃO")
-st.subheader("REPORT PRODUÇÃO ANTERIORES")
 
 hora = datetime.now().strftime("%H:%M:%S")
 data = datetime.now().strftime("%d/%m/%Y")
@@ -86,120 +15,220 @@ def card(impostada, teorica, linha,
          parcial, delta,
          giro_lf, giro_rt):
 
-    st.markdown(f"""
+    return f"""
     <div class="card">
 
-    <table>
+        <table>
 
-    <tr>
+            <tr>
+                <td>
+                    Impostada<br>
+                    <span class="verde">{impostada}</span>
+                </td>
 
-        <td>
-            Impostada<br>
-            <div class="verde">{impostada}</div>
-        </td>
+                <td>
+                    Teórica<br>
+                    <span class="verde">{teorica}</span>
+                </td>
 
-        <td>
-            Teórica<br>
-            <div class="verde">{teorica}</div>
-        </td>
+                <td class="centro">
+                    <div class="linha">{linha}</div>
+                    <div class="titulo">
+                        Produção Anteriores
+                    </div>
+                </td>
 
-        <td>
-            <div class="linha">{linha}</div>
-            <div class="titulo">
-                Produção Anteriores
-            </div>
-        </td>
+                <td>
+                    Parcial<br>
+                    <span class="verde">{parcial}</span>
+                </td>
 
-        <td>
-            Parcial<br>
-            <div class="verde">{parcial}</div>
-        </td>
+                <td>
+                    Delta<br>
+                    <span class="vermelho">{delta}</span>
+                </td>
+            </tr>
 
-        <td>
-            Delta<br>
-            <div class="vermelho">{delta}</div>
-        </td>
+            <tr>
 
-    </tr>
+                <td colspan="2">
+                    Giro Linha Final<br>
+                    <span class="amarelo">
+                        {giro_lf}
+                    </span>
+                </td>
 
-    <tr>
+                <td>
+                    STELLANTIS
+                </td>
 
-        <td colspan="2">
-            Giro Linha Final<br>
-            <div class="amarelo">
-                {giro_lf}
-            </div>
-        </td>
+                <td colspan="2">
+                    Giro Retrabalho<br>
+                    <span class="amarelo">
+                        {giro_rt}
+                    </span>
+                </td>
 
-        <td>
-            STELLANTIS
-        </td>
+            </tr>
 
-        <td colspan="2">
-            Giro Retrabalho<br>
-            <div class="amarelo">
-                {giro_rt}
-            </div>
-        </td>
+            <tr>
 
-    </tr>
+                <td colspan="2">
+                    <div class="hora">
+                        {hora}
+                    </div>
+                </td>
 
-    <tr>
+                <td>
+                    STELLANTIS
+                </td>
 
-        <td colspan="2">
-            <div class="hora">
-                {hora}
-            </div>
-        </td>
+                <td colspan="2">
+                    <div class="data">
+                        {data}
+                    </div>
+                </td>
 
-        <td>
-            STELLANTIS
-        </td>
+            </tr>
 
-        <td colspan="2">
-            <div class="data">
-                {data}
-            </div>
-        </td>
+            <tr>
+                <td colspan="5">
+                    CONTABILIZANDO GIRO LINHA FINAL
+                    <span class="vermelho">
+                        {delta}
+                    </span>
+                </td>
+            </tr>
 
-    </tr>
+            <tr>
+                <td colspan="5">
+                    CONTABILIZANDO GIRO LINHA FINAL E RETRABALHO
+                    <span class="vermelho">
+                        {delta}
+                    </span>
+                </td>
+            </tr>
 
-    <tr>
-        <td colspan="5">
-            CONTABILIZANDO GIRO LINHA FINAL
-            <span class="vermelho">
-                {delta}
-            </span>
-        </td>
-    </tr>
-
-    <tr>
-        <td colspan="5">
-            CONTABILIZANDO GIRO LINHA FINAL E RETRABALHO
-            <span class="vermelho">
-                {delta}
-            </span>
-        </td>
-    </tr>
-
-    </table>
+        </table>
 
     </div>
-    """, unsafe_allow_html=True)
+    """
 
 
-col1, col2 = st.columns(2)
+html = f"""
+<html>
 
-with col1:
-    card(120, 120, "551", 82, -38, 0, 0)
+<head>
 
-with col2:
-    card(204, 204, "226", 140, -64, 0, 0)
+<style>
 
-col3, col4 = st.columns(2)
+body {{
+    background-color: black;
+    color: white;
+    font-family: Arial;
+}}
 
-with col3:
-    card(168, 168, "521", 126, -42, 0, 0)
+h1 {{
+    margin-bottom: 5px;
+}}
 
-with col4:
-    card(260, 260, "363 / 376", 161, -99, 0, 0)
+h2 {{
+    margin-top: 0;
+}}
+
+.grid {{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}}
+
+.card {{
+    border: 1px solid white;
+    background: black;
+}}
+
+table {{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}}
+
+td {{
+    border: 1px solid white;
+    padding: 8px;
+}}
+
+.verde {{
+    color: #00ff00;
+    font-size: 40px;
+    font-weight: bold;
+}}
+
+.vermelho {{
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+}}
+
+.amarelo {{
+    color: yellow;
+    font-size: 35px;
+    font-weight: bold;
+}}
+
+.linha {{
+    font-size: 65px;
+    font-weight: bold;
+}}
+
+.titulo {{
+    color: #00ff00;
+    font-size: 28px;
+    font-weight: bold;
+}}
+
+.hora {{
+    font-size: 30px;
+    font-weight: bold;
+}}
+
+.data {{
+    font-size: 26px;
+    font-weight: bold;
+}}
+
+.centro {{
+    width: 300px;
+}}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>STELLANTIS - JABOATÃO</h1>
+<h2>REPORT PRODUÇÃO ANTERIORES</h2>
+
+<div class="grid">
+
+    {card(120,120,"551",82,-38,0,0)}
+
+    {card(204,204,"226",140,-64,0,0)}
+
+    {card(168,168,"521",126,-42,0,0)}
+
+    {card(260,260,"363 / 376",161,-99,0,0)}
+
+</div>
+
+</body>
+
+</html>
+"""
+
+components.html(
+    html,
+    height=950,
+    scrolling=True
+)

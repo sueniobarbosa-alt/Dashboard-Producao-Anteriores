@@ -190,7 +190,7 @@ td {{
 
 .titulo {{
     color: #00ff00;
-    font-size: 28px;
+    font-size: 10px;
     font-weight: bold;
 }}
 

@@ -54,7 +54,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-col1, col2, co13 = st.columns(2)
+col1, col2, col3 = st.columns(2)
 
 with col1:
     st.markdown("""

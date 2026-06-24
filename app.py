@@ -54,7 +54,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-col1, col2 = st.columns(2)
+col1, col2, co13 = st.columns(2)
 
 with col1:
     st.markdown("""
@@ -80,8 +80,6 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
-col3, col4 = st.columns(2)
-
 with col3:
     st.markdown("""
     <div class='card'>
@@ -93,6 +91,8 @@ with col3:
     <div class='amarelo'>RETRABALHO: 3</div>
     </div>
     """, unsafe_allow_html=True)
+
+col4 = st.columns(2)
 
 with col4:
     st.markdown("""

@@ -4,7 +4,6 @@ st.set_page_config(
     page_title="Produção Jaboatão",
     layout="wide"
 )
-# LOGO
 st.image("logo.png", width=250)
 
 st.markdown(

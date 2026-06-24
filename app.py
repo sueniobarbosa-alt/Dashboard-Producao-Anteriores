@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 from datetime import datetime
 
 import pandas as pd
-
 df = pd.read_csv("dados.csv")
 
 st.set_page_config(

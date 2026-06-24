@@ -62,15 +62,16 @@ st.markdown(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""
-<div class="card">
+   st.markdown("""
+    <div class='card'>
     <h2>JEEP</h2>
-    <h1>551</h1>
-    <p>Δ -9</p>
-    <p>GIRO LF: 6</p>
-    <p>RETRABALHO: 1</p>
-</div>
-""", unsafe_allow_html=True)
+    <div class='valor'>551</div>
+    <div class='vermelho'>Δ -9</div>
+    <br>
+    <div class='amarelo'>GIRO LF: 6</div>
+    <div class='amarelo'>RETRABALHO: 1</div>
+    </div>
+    """, unsafe_allow_html=True)
     
 with col2:
     st.markdown("""

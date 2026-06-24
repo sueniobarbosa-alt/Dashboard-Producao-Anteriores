@@ -13,7 +13,8 @@ st.markdown("""
 
 .card{
     border:1px solid white;
-    padding:20px;
+    padding:10px;
+    height: 280px;
     margin:10px;
     background-color:black;
     color:white;

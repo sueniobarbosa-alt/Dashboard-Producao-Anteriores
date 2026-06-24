@@ -1,8 +1,14 @@
 import streamlit as st
+from datetime import datetime
 
 st.set_page_config(
     page_title="Produção Jaboatão",
     layout="wide"
+)
+
+st.markdown(
+    f"<h3 style='color:white'>Atualização: {datetime.now().strftime('%H:%M:%S')}</h3>",
+    unsafe_allow_html=True
 )
 
 st.markdown("""

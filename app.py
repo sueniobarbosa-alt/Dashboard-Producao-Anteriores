@@ -7,133 +7,210 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+
 .stApp {
     background-color: black;
     color: white;
 }
 
+h1, h2 {
+    color: white;
+}
+
 .card {
     border: 1px solid white;
-    padding: 20px;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
     text-align: center;
-    background: black;
+}
+
+td {
+    border: 1px solid white;
+    padding: 8px;
 }
 
 .verde {
     color: #00ff00;
-    font-size: 30px;
+    font-size: 22px;
     font-weight: bold;
 }
 
 .amarelo {
     color: yellow;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
 }
 
 .vermelho {
     color: red;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
 }
 
 .producao {
-    font-size: 70px;
+    font-size: 55px;
     font-weight: bold;
 }
 
 .titulo {
     color: #00ff00;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
 }
+
+.rodape {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.data {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 24px;
+    color: gray;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
 st.title("STELLANTIS - JABOATÃO")
 st.subheader("REPORT PRODUÇÃO ANTERIORES")
 
+
+def card(impostada, teorica, producao, parcial,
+         delta, girolf, retrabalho):
+
+    return f"""
+    <div class="card">
+
+    <table>
+
+    <tr>
+        <td>
+            Impostada<br>
+            <div class="verde">{impostada}</div>
+        </td>
+
+        <td>
+            Teórica<br>
+            <div class="verde">{teorica}</div>
+        </td>
+
+        <td>
+            <div class="producao">{producao}</div>
+            <div class="titulo">
+            Produção Anteriores
+            </div>
+        </td>
+
+        <td>
+            Parcial<br>
+            <div class="verde">{parcial}</div>
+        </td>
+
+        <td>
+            Delta<br>
+            <div class="vermelho">{delta}</div>
+        </td>
+    </tr>
+
+    <tr>
+
+        <td colspan="2">
+            Giro linha Final<br>
+            <div class="amarelo">{girolf}</div>
+        </td>
+
+        <td>
+            <div class="logo">
+            STELLANTIS
+            </div>
+        </td>
+
+        <td colspan="2">
+            Giro Retrabalho<br>
+            <div class="amarelo">{retrabalho}</div>
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td colspan="2">
+            <div class="data">
+            16:21:04
+            </div>
+        </td>
+
+        <td>
+            STELLANTIS
+        </td>
+
+        <td colspan="2">
+            <div class="data">
+            24/06/2026
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td colspan="5" class="rodape">
+            CONTABILIZANDO GIRO LINHA FINAL
+            <span class="vermelho">
+            {delta}
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="5" class="rodape">
+            CONTABILIZANDO GIRO LINHA FINAL E RETRABALHO
+            <span class="vermelho">
+            {delta}
+            </span>
+        </td>
+    </tr>
+
+    </table>
+
+    </div>
+    """
+
+
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""
-    <div style="border:1px solid white; background:black; color:white;">
-
-        <table style="width:100%; border-collapse:collapse; text-align:center;">
-            <tr>
-                <td style="border:1px solid white;">
-                    Impostada<br>
-                    <span style="color:#00ff00;font-size:40px;"><b>120</b></span>
-                </td>
-
-                <td style="border:1px solid white;">
-                    Teórica<br>
-                    <span style="color:#00ff00;font-size:40px;"><b>120</b></span>
-                </td>
-
-                <td style="border:1px solid white;">
-                    <span style="font-size:70px;"><b>551</b></span><br>
-                    <span style="color:#00ff00;font-size:30px;">
-                    Produção Anteriores
-                    </span>
-                </td>
-
-                <td style="border:1px solid white;">
-                    Parcial<br>
-                    <span style="color:#00ff00;font-size:40px;"><b>82</b></span>
-                </td>
-
-                <td style="border:1px solid white;">
-                    Delta<br>
-                    <span style="color:red;font-size:40px;"><b>-38</b></span>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2" style="border:1px solid white;">
-                    Giro Linha Final<br>
-                    <span style="color:yellow;font-size:35px;">0</span>
-                </td>
-
-                <td style="border:1px solid white;">
-                    STELLANTIS
-                </td>
-
-                <td colspan="2" style="border:1px solid white;">
-                    Giro Retrabalho<br>
-                    <span style="color:yellow;font-size:35px;">0</span>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="5" style="padding:20px;">
-                    CONTABILIZANDO GIRO LINHA FINAL
-                    <span style="color:red;font-size:35px;"><b>-38</b></span>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="5" style="padding:20px;">
-                    CONTABILIZANDO GIRO LINHA FINAL E RETRABALHO
-                    <span style="color:red;font-size:35px;"><b>-38</b></span>
-                </td>
-            </tr>
-
-        </table>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        card(120,120,551,82,-38,0,0),
+        unsafe_allow_html=True
+    )
 
 with col2:
-    st.markdown("""
-    <div class="card">
-        <div class="verde">IMPOSTADA 204</div>
-        <br>
-        <div class="producao">226</div>
-        <br>
-        <div class="vermelho">DELTA -64</div>
-        <br>
-        <div class="amarelo">GIRO LF: 0</div>
-        <div class="amarelo">RETRABALHO: 0</div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        card(204,204,226,140,-64,0,0),
+        unsafe_allow_html=True
+    )
+
+col3, col4 = st.columns(2)
+
+with col3:
+    st.markdown(
+        card(168,168,521,126,-42,0,0),
+        unsafe_allow_html=True
+    )
+
+with col4:
+    st.markdown(
+        card(260,260,"363 / 376",161,-99,0,0),
+        unsafe_allow_html=True
+    )

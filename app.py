@@ -6,15 +6,6 @@ st.set_page_config(
 )
 st.image("file.png", width=250)
 
-delta = -9
-
-cor = "red" if delta < 0 else "#00ff00"
-
-st.markdown(
-    f"<div style='font-size:40px;color:{cor};'>Δ {delta}</div>",
-    unsafe_allow_html=True
-)
-
 st.markdown(
     f"<h3 style='color:white'>Atualização: {datetime.now().strftime('%H:%M:%S')}</h3>",
     unsafe_allow_html=True
@@ -75,12 +66,13 @@ with col1:
     <div class='card'>
     <h2>JEEP</h2>
     <div class='valor'>551</div>
-    <div class='vermelho'>Δ -9</div>
-    <br>
-    <div class='amarelo'>GIRO LF: 6</div>
-    <div class='amarelo'>RETRABALHO: 1</div>
-    </div>
-    """, unsafe_allow_html=True)
+    <div class='vermelho'delta = -9
+
+cor = "red" if delta < 0 else "#00ff00"
+
+st.markdown(
+    f"<div style='font-size:40px;color:{cor};'>Δ {delta}</div>",
+    unsafe_allow_html=True
 
 with col2:
     st.markdown("""

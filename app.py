@@ -6,6 +6,15 @@ st.set_page_config(
 )
 st.image("file.png", width=250)
 
+delta = -9
+
+cor = "red" if delta < 0 else "#00ff00"
+
+st.markdown(
+    f"<div style='font-size:40px;color:{cor};'>Δ {delta}</div>",
+    unsafe_allow_html=True
+)
+
 st.markdown(
     f"<h3 style='color:white'>Atualização: {datetime.now().strftime('%H:%M:%S')}</h3>",
     unsafe_allow_html=True
